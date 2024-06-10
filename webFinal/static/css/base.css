@@ -1,0 +1,367 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: #d5d4d0;
+}
+
+.text {
+    font-size: .80rem;
+    line-height: 1.467;
+    font-family: "Segoe UI","Segoe WP",Arial,Sans-Serif;
+    font-weight: normal;
+}
+
+#allcontent {
+    position: relative;
+    width: 94.9em;
+    height: 58.5em;
+    background-color: #f4f4f2;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 15px grey;
+}
+
+header {
+    position: fixed;
+    z-index: 200;
+    height: 108px;
+    width: 94.9em;
+    background-color: #f4f4f2;
+}
+
+#logo {
+    position: absolute;
+    left: 8%;
+    top: 30%;
+}
+
+#logo figcaption {
+    color: #696969;
+    margin-top: -5px;
+}
+
+#logo img {
+    cursor: pointer;
+}
+
+form {
+    padding-left: 10px;
+    position: absolute;
+    height: 46px;
+    width: 43.6em;
+    border: 1px solid #9f9f9f;
+    border-radius: 6px;
+    box-shadow: 0px 2px 6px #9f9f9f;
+    top: 25%;
+    left: 26%;
+    background-color: white;
+}
+
+form input[type="text"] {
+    width: 31.8em;
+    height: 46px;
+    border: 0;
+    top: 1px;
+    outline: 0;
+    font-size: 17px;
+}
+
+form a {
+    position: absolute;
+    margin-left: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+form button {
+    font-size: .90rem !important;
+    color: #6a4200;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    background-color: #0078D7;
+    border: 0;
+    padding: 12px 18px 14px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    cursor: pointer;
+}
+
+#userProfile {
+    position: absolute;
+    width: 83px;
+    height: 25px;
+    right: 9%;
+    top: 38%;
+}
+
+
+#userProfile img {
+    margin-left: 17px;
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+}
+
+#userProfile button  {
+    position: absolute;
+    top: 1px;
+    cursor: pointer;
+    border: none;
+    width: 25px;
+    height: 25px;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' stroke='%23707070'%3E%3Cg class='user-icon' stroke-width='1.9' fill='none'%3E%3Ccircle cx='32' cy='32' r='30.25'/%3E%3Cg transform='matrix(1.1 0 0 1.1 8.8 5.61)'%3E%3Ccircle class='user-icon' cx='20' cy='16' r='7'/%3E%3Cpath class='user-icon' d='M30 35h10m-5-5v10M30.833 32.09A11 11 0 009 34'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+#otherSites {
+    position: relative;
+    top: 6.8em;
+    margin-left: 7.8em;
+    width: 79.4em; 
+    padding-bottom: 17px;
+    border-bottom: 1px solid #dcdcda;
+}
+
+#otherSites * {
+    font-weight: 600;
+}
+
+#otherSites li {
+    list-style: none;
+    display: inline;
+}
+
+#otherSites li img {
+    position: relative;
+    top: 9px;
+    right: 2px;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+#otherSites > :not(:first-child) { 
+    padding-left: 63px; 
+}
+
+
+#otherSites li * {
+    cursor: pointer;
+}
+
+#mainNav {
+    position: absolute;
+    top: 10.3em;
+    margin-left: 7.4em;
+    width: 79.4em; 
+    padding-bottom: 17px;
+}
+
+#mainNav * {
+    color: #666;
+    font-weight: 649.999 !important;
+    font-size: 13.4px;
+    margin: 0 6px 0;
+    cursor: pointer;
+}
+
+#weather img {
+    position: relative;
+    top: 5px;
+}
+
+#weather {
+    margin-left: -5px;
+}
+
+.separator {
+    font-size: 19px !important;
+    color: #d0d0ce  !important;
+    cursor: default !important;
+}
+
+#mainSection {
+    position: absolute;
+    margin-left: 7.75em;
+    width: 79.4em; 
+    height: 35em;
+    top: 12.8em;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(4, 1fr);
+} 
+
+#mainSection > * {
+    background-color: white;
+    border-right: 1px solid #e0e0de;
+    border-bottom: 1px solid #e0e0de;
+    cursor: pointer;
+}
+
+.post {
+    position: relative;
+    width: 281px;
+    height: 74px;
+    padding: 12px;
+}
+
+.post > img {
+    float: left;
+    margin-right: 12px;
+}
+
+.post .source {
+    bottom: 10px;
+    left: 124px;
+    position: absolute;
+    display: block;
+    max-width: 100%;
+}
+
+.source {
+    color: #666;
+    z-index: 3;
+    position: absolute;
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 1.364;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.source > img {
+    position: relative;
+    top: 3px;
+}
+
+#tallPosts {
+    grid-column: 1 / 3;
+    grid-row: 1 / 4;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    height: 366px;
+    padding: 3px;
+}
+
+#tallPosts > h3 {
+    font-weight: 649.99;
+    font-size: .85rem;
+    line-height: 1.384;
+    text-transform: uppercase;
+    background: #fdc210;
+    color: #000;
+    left: 1.5rem;
+    top: 1.3rem;
+    padding: .2rem .54rem;
+    position: absolute;
+
+    z-index: 99;
+}
+
+.gradient {
+    position: absolute;
+    height: 186px;
+    bottom: 2px;
+    right: 2px;
+    left: 2px;
+    z-index: 2;
+    background: 
+        linear-gradient(to top,
+        #000 63%,transparent 100%)
+         repeat scroll 0 0 transparent;
+}
+
+.gradient2 {
+    position: absolute;
+    left: 3px;
+    bottom: 3px;
+    height: 143.91px;
+    width: 98%;
+    z-index: 2;
+    background:
+        linear-gradient(0deg,
+        rgba(0,0,0,.95) 0,
+        transparent 100%);
+}
+
+.tallPost {
+    position: relative;
+}
+
+.title {
+    color: #f6f6f6;
+    z-index: 3;
+    font-weight: 350;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    max-height: 5.4rem;
+    overflow: hidden;
+}
+
+.tallPost .title {
+    position: absolute;
+    left: 18px;
+    bottom: 62px;
+    width: 170px;
+    padding-bottom: .1rem;
+}
+
+#bigPost1 {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+}
+
+#bigPost2 {
+    grid-column: 4 / 5;
+    grid-row: 1 / 3;
+}
+
+.bigPost {
+    height: 250px;
+    padding: 3px;
+    position: relative;
+}
+
+.bigPost .title {
+    position: absolute;
+    z-index: 3;
+    width: 260px;
+    left: 23px;
+    bottom: 50px;
+    font-size: 1.34rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);
+}
+
+.bigPost .source {
+    bottom: 20px;
+    left: 23px;
+    color: #a0a0a0;
+}
+
+.tallPost .source {
+    bottom: 30px;
+    left: 18px;
+    color: #a0a0a0;
+}
+
+.postSeparator {
+    position: relative;
+    z-index: 4;
+    width: 1px;
+    height: 100.5%;
+    background-color: #ffffff;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 5.5%;
+    text-align: center;
+}

@@ -1,0 +1,286 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} MSN | Outlook, Office, Skype, Bing, Breaking News, and Latest Videos {% endblock %}
+
+{% block content %}
+<script>
+    function changeLanguage() {
+        var selectedLanguage = document.getElementById("language").value;
+    
+        // Add the selected language as a query parameter to the URL
+        if (selectedLanguage === "Türkçe") {
+            window.location.href = "{% url 'index' %}"
+        } else if (selectedLanguage === "English") {
+            window.location.href = "{% url 'english' %}"
+        }
+    }
+    </script>
+<div id="allcontent">
+    <header>
+            <figure id="logo">
+                <img src="{% static 'img/msnLogo.png' %}" width="70.33" height="32">
+            </figure>
+
+            <form>
+                <input type="text" id="searchInput">
+                <button type="button" class="text" id="searchButton">Ara</button>
+            </form>               
+            <script>
+                document.getElementById('searchButton').addEventListener('click', function() {
+                    var inputValue = document.getElementById('searchInput').value;
+                    if (inputValue.toLowerCase() === 'milyonlarca') {
+                        window.location.href = "{% url 'news' %}";
+                    } else if (inputValue.toLowerCase() === 'yılan') {
+                        window.location.href = "{% url 'news2' %}"
+                    }
+                });
+            </script>
+            <div id="userProfile">
+                {% if user.is_authenticated %}
+                <a href="" class="text-black">Çıkış yap</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="text-black">Giriş Yap</a> | <a href="{% url 'register' %}" class="text-black">Kayıt ol</a>
+                {% endif %}
+                <img src="{% static 'img/gear.png' %}" width="24">
+                <select class="form-control" id="language" name="language" onchange="changeLanguage()">
+                <option value="">Seçiniz</option>
+                <option value="Türkçe">Türkçe</option>
+                <option value="English">English</option>
+            </select>
+
+            </div>
+    </header>
+    <ul id="otherSites">
+        <li>
+            <img src="{% static 'img/Outlook.ico' %}" width="27.21">
+            <span class="text">Outlook.com</span>
+        </li>
+        <li>
+            <img src="{% static 'img/Facebook.png' %}" width="27.21">
+            <span class="text">Facebook</span>
+        </li>
+        <li>
+            <img src="{% static 'img/Skype.ico' %}" width="27.21">
+            <span class="text">Skype</span>
+        </li>
+        <li>
+            <img src="{% static 'img/Twitter.ico' %}" width="27.21">
+            <span class="text">Twitter</span>
+        </li>
+        <li>
+            <img src="{% static 'img/Office.ico' %}" width="27.21">
+            <span class="text">Office</span>
+        </li>
+        <li>
+            <img src="{% static 'img/OneDrive.png' %}" width="27.21">
+            <span class="text">OneDrive</span>
+        </li>
+    </ul>
+    <nav id="mainNav">
+        <a id="weather" class="text">
+            <img src="{% static 'img/sun.png' %}" width="20">
+            Buca / 33°C
+            <img src="{% static 'img/pencil.png' %}" width="20">
+        </a>
+        <span class="separator">|</span>
+        <a class="categories text">Spor</a>
+        <a class="categories text">Finans</a>
+        <a class="categories text">Haber</a>
+        <a class="categories text">Eğlence</a>
+        <a class="categories text">Astroloji</a>
+        <a class="categories text">Otomobil</a>
+        <a class="categories text">Yaşam</a>
+        <a class="categories text">Hava Durumu</a>
+        <a class="categories text">Video</a>
+        <a class="categories text">Alişveriş</a>
+        <a class="categories text">Gündelik Oyunlar</a>
+    </nav>
+    <section id="mainSection">
+        <div id="tallPosts">
+            <span class="gradient"></span>
+            <h3 class="text">TRENDING</h3>
+
+            <article class="tallPost">
+                <img src="{% static 'img/tallPost1.jpg' %}"height="250px" width="206px">
+                <span class="title text">
+                    Hammer Jack Siyah Erkek Outdoor Bot BOND M BOT 43 1084279
+                </span>
+                <span class="source text">
+                    <img src="{% static 'img/Boyner.png' %}">
+                    Boyner
+                </span>
+            </article>
+
+            <span class="postSeparator"></span>
+
+            <article class="tallPost">
+                <img src="{% static 'img/tallPost2.jpg' %}" height="250px" width="206px">
+                <span class="title text">
+                    Petrol Ofisi istasyonlarında 220 TL’ye varan MaxiPuan!
+                </span>
+                <span class="source text">
+                    <img src="{% static 'img/Boyner.png' %}">
+                    Türkiye İş Bankası
+                </span>
+            </article>
+
+            <span class="postSeparator"></span>
+
+            <article class="tallPost">
+                <img src="{% static 'img/tallPost3.jpg' %}" height="250px" width="206px">
+                <span class="title text">
+                    Adeta gök delindi dolu yağdı
+                </span>
+                <span class="source text">
+                    <img src="{% static 'img/A.png' %}">
+                    İHA
+                </span>
+            </article>
+        </div>
+
+        <article id="bigPost1" class="bigPost">
+            <img src="{% static 'img/bigPost1.jpg' %}" height="240px" width="300px">
+            <span class="gradient2"></span>
+            <span class="title text">
+                Asyalıların sır gibi sakladığı çay! İçerdiği faydalar anne sütüyle eşdeğer çıktı
+            </span>
+            <span class="source text">
+                <img src="{% static 'img/M.png' %}">
+                Milliyet
+            </span>
+        </article>
+        
+        <article id="bigPost2" class="bigPost">
+            <img src="{% static 'img/bigPost2.jpg' %}" height="240px" width="300px">
+            <span class="gradient2"></span>
+            <span class="title text">
+                Taze fasulye sert oluyorsa tencereye bir kaşık ekleyin! Fasulye lokum gibi oluyor
+            </span>
+            <span class="source text">
+                <img src="{% static 'img/M.png' %}">
+                Milliyet
+            </span>
+        </article>
+
+        <article class="post">
+            <img src="{% static 'img/post1.jpg' %}" height="50px" width="100px">
+            <a href="{% url 'news' %}">></a>
+            <span class="text">
+                Milyonlarca öğrenci...
+            </span>
+            <span class="source text">
+                <img src="{% static 'img/H.png' %}">
+                Haberler.com
+            </span>
+        </article>
+
+        <article class="post">
+            <img src="{% static 'img/post2.jpg' %}" height="50px" width="100px">
+            <a href="#">></a>
+            <span class="text">
+                EURO 2024...
+            </span>
+            <span class="source text">
+                <img src="{% static 'img/H2.png' %}">
+                Hürriyet
+            </span>
+        </article>
+
+        <article class="post">
+            <img src="{% static 'img/post3.jpg' %}" height="50px" width="100px">
+            <a href="#">></a>
+            <span class="text">
+                Özgür Özel, CHP için...
+            </span>
+            <span class="source text">
+                <img src="{% static 'img/H2.png' %}">
+                Hürriyet
+            </span>
+        </article>
+
+        <article class="post">
+            <img src="{% static 'img/post4.jpg' %}" height="50px" width="100px">
+            <a href="#">></a>
+            <span class="text">
+                Hakim Ziyech,...
+            </span>
+            <span class="source text">
+                <img src="{% static 'img/H2.png' %}">
+                Hürriyet
+            </span>
+        </article>
+
+        <article class="post">
+            <img src="{% static 'img/post5.jpg' %}" height="50px" width="100px">
+            <a href="#">></a>
+            <span class="text">
+                Seren Serengil sokak...
+            </span>
+            <span class="source text">
+                <img src="{% static 'img/H.png' %}">
+                Haberler.com
+            </span>
+        </article>
+
+        <article class="post">
+            <img src="{% static 'img/post6.jpg' %}" height="50px" width="100px">
+            <a href="{% url 'news2' %}">></a>
+            <span class="text">
+                Çanakkale'de...
+            </span>
+            <span class="source text">
+                <img src="{% static 'img/H.png' %}">
+                Haberler.com
+            </span>
+        </article>
+
+        <article class="post">
+            <img src="{% static 'img/post7.jpg' %}" height="50px" width="100px">
+            <a href="#">></a>
+            <span class="text">
+                Memur, SSK ve...
+            </span>
+            <span class="source text">
+                <img src="{% static 'img/H.png' %}">
+                Haberler.com
+            </span>
+        </article>
+
+        <article class="post">
+            <img src="{% static 'img/post8.jpg' %}" height="50px" width="100px">
+            <a href="#">></a>
+            <span class="text">
+                Ankara’da D140...
+            </span>
+            <span class="source text">
+                <img src="{% static 'img/A.png' %}">
+                İHA
+            </span>
+        </article>
+
+        <article class="post">
+            <img src="{% static 'img/post9.jpg' %}" height="50px" width="100px">
+            <a href="#">></a>
+            <span class="text">
+                Kastamonu'da...
+            </span>
+            <span class="source text">
+                <img src="{% static 'img/H.png' %}">
+                Haberler.com
+            </span>
+        </article>
+
+        <article class="post">
+            <img src="{% static 'img/post10.jpg' %}" height="50px" width="100px">
+            <a href="#">></a>
+            <span class="text">
+                TCG Nusret Ayvalık'ta...
+            </span>
+            <span class="source text">
+                <img src="{% static 'img/M.png' %}">
+                Milliyet               
+            </span>
+        </article>
+    </section>
+
+{% endblock %}

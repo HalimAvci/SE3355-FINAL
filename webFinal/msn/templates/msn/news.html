@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} News {% endblock %}
+
+{% block content %}
+
+    <header>
+            <figure id="logo">
+                <img src="{% static 'img/msnLogo.png' %}" width="70.33" height="32">
+            </figure>
+
+            <form>
+                <input type="text" id="searchInput">
+                <button type="button" class="text" id="searchButton">Ara</button>
+            </form>               
+            <script>
+                document.getElementById('searchButton').addEventListener('click', function() {
+                    var inputValue = document.getElementById('searchInput').value;
+                    if (inputValue.toLowerCase() === 'ana sayfa') {
+                        window.location.href = "{% url 'index' %}";
+                    }
+                });
+            </script>
+            <div id="userProfile">
+                {% if user.is_authenticated %}
+                <a href="" class="text-black">Çıkış yap</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="text-black">Giriş Yap</a> | <a href="{% url 'register' %}" class="text-black">Kayıt ol</a>
+                {% endif %}
+                <img src="{% static 'img/gear.png' %}" width="24">
+                <select class="form-control" id="language" name="language" onchange="changeLanguage()">
+                <option value="">Seçiniz</option>
+                <option value="Türkçe">Türkçe</option>
+                <option value="English">English</option>
+            </select>
+            </div>
+    </header>
+<style>
+    body {
+        background-color: black;
+    }
+    header {
+        background-color: black;
+    }
+</style>
+<div style=" position: relative; text-align: center;">
+    <img src="https://assets.msn.com/staticsb/statics//latest/icons-wc/icons/VideoJsPlay.svg" alt="Play Icon" style="position: absolute; top: 70%; left: 48%; transform: translate(-50%, -50%); z-index: 1;">
+    <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1nR0gi.img?w=736&h=414&q=60&m=6&f=jpg&u=t" alt="News Image" style="position: relative; top: 100px;">
+    <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBWH0wf.img" alt="news" width="16" height="16" style="position: relative; top: 317px; right: 741px;">
+    <span style="position: relative; top: 317px; right: 741px; color: white; font-size: 10px;">Haberler.com</span>
+    <h1 style="color: white; font-size: 20px; top: 120px; position: relative;">Milyonlarca öğrenci YKS'de ter döküyor! 2 dakikayla geç kalan da var, yolda kaza geçiren de</h1>
+</div>
+
+<script>
+    function changeLanguage() {
+        var selectedLanguage = document.getElementById("language").value;
+    
+        // Add the selected language as a query parameter to the URL
+        if (selectedLanguage === "Türkçe") {
+            window.location.href =  "{% url 'news' %}"
+        } else if (selectedLanguage === "English") {
+            window.location.href = "{% url 'english2' %}"
+        }
+    }
+    </script>
+
+
+
+{% endblock %}

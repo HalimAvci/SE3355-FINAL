@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Giriş Yap {% endblock %}
+
+{% block content %}
+
+<img src="{% static 'img/gear.png' %}" width="24" style="position: relative;">
+            <select class="form-control" id="language" name="language" onchange="changeLanguage()">
+            <option value="">Seçiniz</option>
+            <option value="Türkçe">Türkçe</option>
+            <option value="English">English</option>
+        </select>
+        <script>
+            function changeLanguage() {
+                var selectedLanguage = document.getElementById("language").value;
+            
+                // Add the selected language as a query parameter to the URL
+                if (selectedLanguage === "Türkçe") {
+                    window.location.href = "{% url 'login' %}"
+                } else if (selectedLanguage === "English") {
+                    window.location.href = "{% url 'english4' %}"
+                }
+            }
+            </script>
+<div class="container mt-5">
+    
+    <a href="{% url 'index' %}" class="btn btn-primary mb-5">Geri dön</a>
+    <h1>Giriş Yap</h1>
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        {% if error %}
+        <div class="alert alert-danger" >
+            {{ error }}
+        </div>
+        {% endif %}
+        <div class="form-group">
+            <style>
+                .email {
+                    margin-top: 20%;
+                }
+                .img {
+                    margin-top: 10px;
+                    position: absolute;
+                }
+            </style>
+            <label for="email" class="email">E-posta</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Şifre</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock %}
